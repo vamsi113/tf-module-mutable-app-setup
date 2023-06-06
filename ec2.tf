@@ -4,7 +4,7 @@ resource "aws_launch_template" "launch-template" {
   instance_type = "c5.large"
 }
 
-rresource "aws_autoscaling_group" "asg" {
+resource "aws_autoscaling_group" "asg" {
   max_size           = var.max_size
   min_size           = var.min_size
 
