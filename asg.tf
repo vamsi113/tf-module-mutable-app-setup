@@ -2,6 +2,7 @@ resource "aws_launch_template" "launch-template" {
   name          = "${var.env}-${var.name}-lt"
   image_id      = data.aws_ami.centos-8-ami.image_id
   instance_type = var.instance_type
+  vpc_security_group_ids = [aws_security_group.sg.id]
 
   iam_instance_profile {
     name = aws_iam_instance_profile.instance_profile.name
