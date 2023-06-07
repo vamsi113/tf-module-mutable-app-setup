@@ -1,7 +1,7 @@
 resource "aws_iam_policy" "policy" {
   name        = "${var.env}-${var.name}-policy"
   path        = "/"
-  description = "${var.env}-${var.name}-elasticache"
+  description = "${var.env}-${var.name}-policy"
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
@@ -23,7 +23,7 @@ resource "aws_iam_policy" "policy" {
 }
 
 resource "aws_iam_role" "role" {
-  name = "${var.env}-${var.name}-policy"
+  name = "${var.env}-${var.name}-role"
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
@@ -42,11 +42,16 @@ resource "aws_iam_role" "role" {
   })
 
   tags = {
-    tag-key = "tag-value"
+    tag-key = "${var.env}-${var.name}-role"
   }
 }
 
 resource "aws_iam_role_policy_attachment" "policy-to-role-attach" {
   role       = aws_iam_role.role.name
   policy_arn = aws_iam_policy.policy.arn
+}
+
+resource "aws_iam_instance_profile" "instance_profile" {
+  name = "${var.env}-${var.name}-instance_profile"
+  role = aws_iam_role.role.name
 }
