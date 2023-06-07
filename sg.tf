@@ -4,11 +4,11 @@ resource "aws_security_group" "sg" {
   vpc_id      = var.vpc_id
 
   ingress {
-    description      = "SSH"
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp"
-    cidr_blocks      = [var.BASTION_NODE]
+    description = "SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [var.BASTION_NODE]
   }
 
   egress {
@@ -22,3 +22,4 @@ resource "aws_security_group" "sg" {
   tags = {
     Name = "${var.env}-${var.name}-ec2.sg"
   }
+}
