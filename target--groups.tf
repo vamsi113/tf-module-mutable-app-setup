@@ -42,7 +42,7 @@ resource "aws_lb_listener_rule" "rule-frontend" {
 
   condition {
     host_header {
-      values = ["${var.name}-${var.env}.vsudd67.online"]
+      values = ["${var.env}.vsudd67.online"]
     }
   }
 }
