@@ -11,6 +11,8 @@ variable "PROMETHEUS_NODE" {}
 variable "vpc_cidr" {}
 variable "alb" {}
 variable "private_zone_id" {}
+variable "lb_listner_priority" {}
+variable "type" {}
 
 
 
