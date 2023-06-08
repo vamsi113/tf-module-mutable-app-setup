@@ -13,6 +13,8 @@ variable "alb" {}
 variable "private_zone_id" {}
 variable "lb_listner_priority" {}
 variable "type" {}
+variable "public_zone_id" {}
+variable "public_dns_name" {}
 
 
 
