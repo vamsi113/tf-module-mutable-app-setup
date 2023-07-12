@@ -35,8 +35,8 @@ resource "aws_autoscaling_group" "asg" {
   }
   tag {
     key                 = "Monitor"
-    propagate_at_launch = "yes"
-    value               = "${var.env}-${var.name}"
+    propagate_at_launch = true
+    value               = "yes"
   }
 }
 
